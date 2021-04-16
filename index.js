@@ -35,6 +35,7 @@ router.use(bodyParser.raw({ limit: '10mb', type: () => true }))
 const bodyDebug = debug.extend('body')
 
 router.post('/data/:id', (req, res) => {
+  console.log("entered set code")
   const deviceId = req.params.id
 
   if (!router.__dataStore[deviceId]) {
@@ -51,6 +52,7 @@ router.post('/data/:id', (req, res) => {
 })
 
 router.get('/data/:id', (req, res) => {
+  console.log("entered get code")
   const deviceId = req.params.id
 
   if (!router.__dataStore[deviceId] || router.__dataStore[deviceId].length === 0) {
